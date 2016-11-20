@@ -1,0 +1,36 @@
+{
+  "name": "DOF",
+  "homepage": "https://github.com/BJM-Union/DigitalOilField",
+  "authors": [
+    "Zhigao Zhu <zhigao.zhu@gmail.com>"
+  ],
+  "description": "DOF Demo",
+  "main": "",
+  "moduleType": [],
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular-material": "~1.0.5",
+    "angular-route": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-timeline": "~1.6.2",
+    "bootstrap-datepicker": "~1.6.0",
+    "bootstrap-slider": "*",
+    "jQuery-QueryBuilder": "~2.3.2",
+    "d3": "~3.5.16",
+    "nvd3": "~1.8.2",
+    "angular-nvd3": "~1.0.5",
+    "domReady": "^2.0.1",
+    "angular-ui-grid": "~3.1.1",
+    "requirejs": "~2.1.22",
+    "angular-material-icons": "~0.7.0"
+  }
+}

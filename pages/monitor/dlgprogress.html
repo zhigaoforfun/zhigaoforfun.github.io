@@ -1,0 +1,53 @@
+<md-dialog aria-label="修复进度"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3>修复进度</h3>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="close()">
+          <md-icon md-svg-src="imgs/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+<md-dialog-content>
+<div style="margin:20px; width:400px">
+  <timeline>
+      <!-- can also hard-code to side="left" or side="right" -->
+      <timeline-event ng-repeat="event in events" side="right">
+        <!-- uses angular-scroll-animate to give it some pop -->
+        <timeline-badge class="{{event.badgeClass}} timeline-hidden"
+                        when-visible="animateElementIn" when-not-visible="animateElementOut">
+          <i class="glyphicon {{event.badgeIconClass}}"></i>
+        </timeline-badge>
+
+        <!-- uses angular-scroll-animate to give it some pop -->
+        <timeline-panel class="{{event.badgeClass}} timeline-hidden"
+                        when-visible="animateElementIn" when-not-visible="animateElementOut">
+          <timeline-heading>
+            <h4>{{event.title}}</h4>
+
+            <p ng-if="event.when">
+              <small class="text-muted"><i class="glyphicon glyphicon-time"></i>{{event.when}}</small>
+            </p>
+            <p ng-if="event.titleContentHtml" ng-bind-html="event.titleContentHtml">
+            </p>
+          </timeline-heading>
+          <p ng-bind-html="event.contentHtml"></p>
+          <timeline-footer ng-if="event.footerContentHtml">
+            <span ng-bind-html="event.footerContentHtml"></span>
+          </timeline-footer>
+        </timeline-panel>
+      </timeline-event>
+    </timeline>
+
+</div>		
+
+</md-dialog-content>
+ <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class = "md-raised md-primary" ng-click="close()" style="margin-right:20px;">
+        确定
+      </md-button>
+    </md-dialog-actions> 
+  </form>
+</md-dialog>

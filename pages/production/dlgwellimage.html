@@ -1,0 +1,18 @@
+<md-dialog aria-label="井信息"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3>{{title}}</h3>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="close()">
+          <md-icon md-svg-src="imgs/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+<md-dialog-content>
+			<div style="margin:2px">
+				<img src="{{image}}"/>
+			</div>
+</md-dialog-content>
+</form>
+</md-dialog>

@@ -1,0 +1,375 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.login-common {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+.login-common .overlay-bl-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3e4b51;
+    opacity: 0.7;
+    filter: alpha(Opacity = 70);
+}
+
+/* Common Styles*/
+.black {
+  background: #000000; }
+.gray {
+  background: #f5f5f5; }
+.lightlightgray {
+  background: #f4f2ef; }
+.lightgray {
+  background: #eeeeee; }
+.green {
+  background: #b9f6ca; }
+.yellow {
+  background: #ffff8d; }
+.blue {
+  background: #84ffff; }
+.purple {
+  background: #b388ff; }
+.red {
+  background: #ff8a80; }
+.renderborder
+{
+  border:2px solid lightgray;
+  margin: 3px;
+}
+.normaltext{
+  padding: 5px;
+  word-wrap: break-word;
+}
+@media (min-width: 600px) {
+  .flexbigitem {
+     /* This will be twice as big as the small item. */
+     -webkit-flex: 2 0 0; 
+     flex: 2 0 0; 
+  }
+  .flexsmallitem {
+     -webkit-flex: 1 0 0;
+     flex: 1 0 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .flexbigitem {
+  }
+  .flexsmallitem {
+  }
+}
+
+/*.fill-height-or-more {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.fill-height-or-more > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}*/
+
+.fill-height-or-more {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+} 
+
+.fill-height-or-more > div {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+/* Toolbar area */
+
+.menu {
+background-color: transparent;
+border: none;
+height: 38px;
+margin: 16px;
+width: 36px;
+}
+
+md-toolbar h1 {
+margin: auto;
+}
+
+/* Sidenav area */
+
+md-list .md-button {
+color: inherit;
+font-weight: 500;
+text-align: left;
+width: 100%;
+}
+md-list .md-button.selected {
+  color: #607D8B;
+  font-weight: bold;
+  background-color: #DEE0EC;
+}
+
+md-sidenav  md-list {
+  padding: 0px 0px 8px 0px;
+}
+md-grid-list {
+    margin: 8px; }
+md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
+
+md-input-container {
+    margin-top: 18px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+md-input-container .md-errors-spacer {
+     min-height: 0px;
+}
+
+md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-active {
+  min-width: 100px !important;
+  width: 50vw !important;
+  max-width: 100px !important;
+}
+
+/* Primary content area */
+
+#content {
+  overflow: hidden;
+}
+
+#content  {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+#content .md-button.contact {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px auto 16px 0;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+}
+
+#content md-icon.avatar {
+  margin-top: 10px;
+}
+
+#content .md-button.contact > md-icon {
+  fill:black;
+  width:36px;
+  height:36px;
+}
+
+md-button.menuBtn > md-icon {
+  fill:white;
+  width:24px;
+  height:24px;
+}
+
+#content .md-button.contact:active > md-icon {
+  background-color: #dadada;
+  border-radius: 75%;
+  padding:4px;
+  transition: all 100ms ease-out 30ms;
+}
+
+
+/* Utils */
+
+.content-wrapper {
+  position: relative;
+}
+
+/* Typography support coming in 0.8.0 */
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+
+md-bottom-sheet  md-icon {
+  margin-right:20px;
+}
+
+span.name {
+  font-weight: bold;
+  font-size:1.1em;
+  padding-left:5px;
+}
+
+/*for 3d css */
+#datGUI  {
+	border: none; 
+	margin: 0px;
+	padding: 0px;
+	border: none; /* or none; */
+	left: 0px;
+	top: 0px;
+	position: absolute;
+}
+
+#threescene{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	position:relative; 
+	background-color: black;
+}
+
+#maincontainer{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+#compasscontainer  {
+	width: 100px;
+	height: 100px;
+	background-color: transparent; /* or transparent; will show through only if renderer alpha: true */
+	border: none; /* or none; */
+	margin: 0px;
+	padding: 0px;
+	left: 0px;
+	bottom: 0px;
+	position: absolute;
+}
+/*end for 3d css*/
+
+/* for bug#3 at https://github.com/philipwalton/flexbugs*/
+.region-content {
+  flex: 1 0 auto;  /* 2 */
+  flex-xs:1 0 auto; /* 2 */;
+  flex-sm:1 0 auto; /* 2 */;
+}
+
+.region-auto-width {
+  max-width: auto; }
+
+@media (min-width: 960px) {
+  .region-auto-width {
+    max-width: 50%; } }
+
+/* end for bug#3 at https://github.com/philipwalton/flexbugs*/
+
+
+
+/* for query builder*/
+.query-builder .rule-container{
+    position: relative;
+    margin: 1px 0;
+    border-radius: 3px;
+    padding: 1px;
+    border: 1px solid #EEE;
+    background: rgba(255,255,255,.7);
+}
+
+.query-builder .rules-group-header {
+   margin-bottom: 5px;
+}
+
+.query-builder .rules-group-container {
+   padding: 5px 5px 6px;
+    border: 1px solid #DCC896;
+    background: rgb(244,242,239);
+}
+
+.form-control {
+    height: 30px;
+    padding: 2px 2px;
+    font-size: 13px;
+  }
+.slider.slider-horizontal{
+  width: 180px;
+}
+
+.query-builder .rules-list>:first-child::before {
+    top: -6px;
+}
+/* end for query builder*/
+
+/*Production realtime status css*/
+gauge .dangerous{
+  background: red;
+}
+gauge .warning{
+  background: yellow;
+}
+gauge .safe{
+  background: green;
+}
+gauge .title{
+  margin-top: 20px;
+  font-size: 120%;
+}
+gauge .value{
+  margin-top: 20px;
+  font-size: 120%;
+}
+gauge .unit{
+  margin-top: 20px;
+  font-size: 100%;
+}
+
+.gaugeitem {
+     -webkit-flex: 1 0 0;
+     flex: 1 0 0;
+}
+
+
+/*style for log demo*/
+.toolbox-content {
+}

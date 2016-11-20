@@ -1,0 +1,1 @@
+define(['baidumapdirective', 'gaugedirective'],function(){});

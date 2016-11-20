@@ -1,0 +1,30 @@
+<div style="background-image:url('./imgs/dof.jpg');background-size: 100% 100%; background-repeat: no-repeat;" class="login-common">
+<div class="overlay-bl-bg"></div>
+<div style="margin-left: auto;margin-right: auto; position: relative; margin-top:15%; background-color:white; width: 550px;  border-radius: 10px;">
+	<div layout="column"  layout-fill flex id="content" role="main" style="margin-left:auto; margin-right:auto;width:90%; padding-bottom: 20px";>
+		<div >
+			<h4 style="padding-left:10px;font-size:2.7em;padding-top: 2%;font-family: Helvetica; font-weight:bold; color:#607D8B">智能油田Demo</h4>
+		</div>
+		<md-input-container  md-no-float>
+			<input ng-model="user.name" placeholder="用户名">
+		</md-input-container>
+		<md-input-container  md-no-float>
+			<input ng-model="user.password" type="password" placeholder="密码">
+		</md-input-container >
+		<label style="margin-top: 15px; font-family:Helvetica; font-weight:bold; color:#607D8B">
+				使用账号zhigao:zhu登录
+		</label>
+
+		<div layout = "row">
+			<md-checkbox ng-model="loginStatus.accepted" class="md-primary" flex style="vertical-align:center; margin-top: auto; margin-bottom: auto">
+				<div style="color: saddlebrown;">访问看看:-)</div></md-checkbox>
+			<md-button ng-disabled="!loginStatus.accepted" ng-model="loginmodel"  class="md-raised md-primary" style="min-width: 200px" ng-click="logIn()" flex>登录</md-button>
+  	</div>
+
+	</div>
+</div>
+</div>
+<!-- <div >
+	<img  src="./imgs/dof.jpg" style="width: 80%;    display: block;   margin-left: auto;   margin-right: auto;"></img>
+</div>
+ -->

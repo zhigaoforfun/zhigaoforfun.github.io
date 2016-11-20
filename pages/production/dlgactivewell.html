@@ -1,0 +1,44 @@
+<md-dialog aria-label="井信息"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3>井信息</h3>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeActiveWell()">
+          <md-icon md-svg-src="imgs/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+<md-dialog-content>
+	<div layout ="row" class="normaltext" style="min-width:350px">
+  <div flex>
+		井名: {{activeWell.name}}<br/>
+		区块: {{activeWell.region}}<br/>
+		类型: {{activeWell.type}}<br/>
+		井位: [{{activeWell.latitude}},{{activeWell.longitude}}]<br/>
+		深度: {{activeWell.depth}}(米)<br/>
+		套管: {{activeWell.casingsize}}(毫米)<br/>
+		油管: {{activeWell.pipesize}}(毫米)<br/>
+		油嘴: {{activeWell.nozzlesize}}(毫米)<br/>
+		生产层: {{activeWell.prdlayer}}<br/>
+		生产方法: {{activeWell.method}}
+    </div>
+    <div flex>
+      <a href="" ng-click="popupImage('地震资料','./imgs/seismic.png')">地震资料</a><br/>
+      <a href="" ng-click="popupImage('地质资料','./imgs/geology.png')">地质资料</a><br/>
+      <a href="" ng-click="popupLog()">测井资料</a><br/>
+      <a href="" ng-click="popupImage('解释资料','./imgs/interpretation.png')">解释资料</a><br/>
+    </div>
+	</div>
+</md-dialog-content>	
+ <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="monitorActiveWell()">
+       查看生产状况
+      </md-button>
+      <md-button class = "md-raised md-primary" ng-click="closeActiveWell()" style="margin-right:20px;">
+        确定
+      </md-button>
+    </md-dialog-actions> 
+  </form>	
+</md-dialog>

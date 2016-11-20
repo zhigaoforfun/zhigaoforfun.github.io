@@ -1,0 +1,28 @@
+<!--     <div id="content" class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="exploration-tab">
+        </div>
+    </div> -->
+
+
+<md-dialog aria-label="井信息"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3>测井信息</h3>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="close()">
+          <md-icon md-svg-src="imgs/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+<md-dialog-content>
+	<div class="loading-banner" style="display: block;">
+        <p>正在加载数据...</p>
+    </div>
+    <div id="logcontent" style="margin:2px; min-width:600px;">
+        <div role="tabpanel" id="exploration-tab">
+        </div>
+    </div>
+</md-dialog-content>
+</form>
+</md-dialog>

@@ -1,0 +1,69 @@
+
+<div layout="column" flex="100">
+	<div flex layout="row" class="renderborder lightgray region-content" style="font-size: 130%">
+		<div flex>生产信息查询</div>
+		<div flex style="text-align:right;">	
+				 <md-button  class="md-raised md-primary" ng-click="generateReport()" style="margin:2px; min-height: 24px; line-height: 30px">
+	      		  <md-icon md-svg-icon="./imgs/icons/menu.svg"></md-icon>
+	      		  报表
+	      		</md-button>
+		</div>
+	</div>
+	<div flex layout="row" layout-xs="column"   class="region-content" >
+		<div  flex class="renderborder region-content" >
+			<baidumap option = "baiduOptions"></baidumap>
+		</div>
+		<!-- the max-width is the trick for IE-->
+		<div flex class="renderborder" style="min-height:200px;margin:3px; overflow-y:auto;" id="searchRegion" >
+			<div id="builder-widgets" ></div>
+			<div style="text-align:center">
+				<md-button class="md-raised md-primary" style="width: 30%; min-width: 200px" ng-click="queryProduction()" >查询</md-button>
+				<md-button class="md-raised md-primary" style="width: 30%; min-width: 200px" ng-click="showWells()">显示井详细信息</md-button>
+			</div>
+		    <div id="grid1" ui-grid="regionGridOptions" class="regiongrid" style="height:160px"></div>
+		    <div style="text-align:center">
+				
+			</div>
+		</div>	
+	</div>
+<!-- 	<div flex class="renderborder lightgray region-content" style="font-size: 150%">
+		生产报表
+	</div>
+ -->	
+	<div flex class=" region-content" layout="row" layout-xs="column">
+		<div layout="column"  class="region-content" ng-class="{'flex-xs-100':desktopManualFlex(), 'flex-35':desktopManualFlex(), flex:!desktopManualFlex()}">
+			<div flex class="renderborder lightlightgray region-content" style="font-size: 100%; text-align:center; max-height:30px" >
+				总产量报表
+			</div>
+			<div flex class="renderborder" style="min-height:200px;">
+				<div id="oilplot1Container">
+					<nvd3 options="timePrdOptions" data="timePrdData"  api="api.timePrdChart" config="{refreshDataOnly: true}" class="with-3d-shadow with-transitions"></nvd3>
+				</div>
+			</div>
+		</div>	
+		<div layout="column" class="region-content" ng-class="{'flex-xs-100':desktopManualFlex(), 'flex-35':desktopManualFlex(), flex:!desktopManualFlex()}" >
+			<div flex class="renderborder lightlightgray region-content" style="font-size: 100%; text-align:center; max-height:30px" >
+				<form>
+					最近生产比较   
+				  <input type="radio" ng-model="prdModel.compareWith" value="month">月
+				  <input type="radio" ng-model="prdModel.compareWith" value="week">周
+				</form>
+			</div>
+			<div flex class="renderborder" style="min-height:200px;">
+				<div id="oilplot2Container">
+					<nvd3 options="prdBarDayOptions" data="prdBarDayData" api="api.prdBarChart" config="{refreshDataOnly: true}" class="with-3d-shadow with-transitions"></nvd3>
+				</div>
+			</div>
+		</div>
+		<div layout="column"  class="region-content" ng-class="{'flex-xs-100':desktopManualFlex(), 'flex-35':desktopManualFlex(), flex:!desktopManualFlex()}">
+			<div flex class="renderborder lightlightgray region-content" style="font-size: 100%; text-align:center; max-height:30px" >
+				最近一月产量分布
+			</div>
+			<div flex class="renderborder" style="min-height:200px;">
+				<div  id = "oilplot3Container">
+					<nvd3 options="prdPieDayOptions" data="prdPieDayData" api="api.prdPieChart" config="{refreshDataOnly: true}" class="with-3d-shadow with-transitions"></nvd3>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>

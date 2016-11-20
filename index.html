@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="cn-ZH" >
+<head>
+  <title>智能油田Demo</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <!-- for query builder-->
+  <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+  <link href="./bower_components/bootstrap-slider/slider.css" rel="stylesheet">
+  <link href="./bower_components/jQuery-QueryBuilder/dist/css/query-builder.default.min.css" rel="stylesheet">
+  <!-- end for query builder-->
+
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css"/>
+  <link rel="stylesheet" href="./bower_components/angular-timeline/dist/angular-timeline.css"/>
+  <link rel="stylesheet" href="./bower_components/angular-timeline/dist/angular-timeline-animations.css"/>
+  <link rel="stylesheet" href="./bower_components/angular-timeline/dist/angular-timeline-bootstrap.css"/>
+  <link rel="stylesheet" href="./bower_components/nvd3/build/nv.d3.min.css" >
+  <link rel="stylesheet" href="./bower_components/angular-ui-grid/ui-grid.min.css">
+  <link rel="stylesheet" href="./components/app.css"/>
+  <style>
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+        .wellgrid {
+         width:99.5%;
+         height: 250px;
+       }
+       .regiongrid {
+         width:99.5%;
+         height: 150px;
+       }
+     </style>
+   </head>
+
+   <body layout="column" ng-controller="navigateCtrl" ng-cloak >
+  <md-toolbar layout="row">
+    <md-button ng-click="toggleSidenav('leftNav')" ng-hide="navLockOpen()" ng-cloak>
+    <md-icon aria-label="Menu"  md-svg-icon="./imgs/icons/menu.svg"></md-icon>
+  </md-button>
+
+  <h1 layout-align="center">智能油田Demo</h1>
+  <md-button ng-click='logInOut()' ng-cloak>
+	<md-icon aria-label="Menu" md-svg-icon="{{loggedInUser.icon}}"></md-icon>
+   {{loggedInUser.name}} - zhuzhigao@sina.cn
+  </md-button>
+  
+</md-toolbar>
+
+<div flex layout="row" flex class="content-wrapper" >
+  <md-sidenav md-is-locked-open="navLockOpen()" class="md-whiteframe-z2" md-component-id="leftNav" ng-cloak>
+  <md-list>
+  <md-list-item ng-repeat="entry in entries">
+  <md-button ng-click="go(entry.url)" ng-class="{'selected' : entry.url === selected }">
+  <div style="text-align:center">
+    <md-icon md-svg-icon="{{entry.icon}}" style="width:32px;height:32px" ></md-icon>
+    <br/>
+    {{entry.text}}
+  </div>
+</md-button>
+</md-list-item>
+</md-list>
+</md-sidenav>
+<md-content flex id="content" style="overflow: scroll;" ng-view>
+
+</md-content>
+</div>
+
+<script src="./bower_components/requirejs/require.js"></script>
+<script type="text/javascript">
+ requirejs.config({
+   baseUrl: 'bower_components',
+   paths: {
+     'jquery': 'jquery/dist/jquery.min',
+     'moment': 'moment/min/moment.min',
+     'domReady': 'domReady/domReady',
+     'bootstrap':'bootstrap/dist/js/bootstrap.min',
+     'bootstrap-datepicker':'bootstrap-datepicker/dist/js/bootstrap-datepicker.min',
+     'bootstrap-slider':'bootstrap-slider/bootstrap-slider',
+     'querybuilder':'jQuery-QueryBuilder/dist/js/query-builder.standalone.min',
+     'querybuilder-zhcn':'jQuery-QueryBuilder/dist/i18n/query-builder.zh-CN',
+     'angular': 'angular/angular.min',
+     'angular-animate':'angular-animate/angular-animate.min',
+     'angular-aria':'angular-aria/angular-aria.min',
+     'angular-material':'angular-material/angular-material.min',
+     'angular-route': 'angular-route/angular-route.min',
+     'angular-sanitize':'angular-sanitize/angular-sanitize',
+     'angular-timeline':'angular-timeline/dist/angular-timeline',
+     'angular-uigrid':'angular-ui-grid/ui-grid.min',
+     'd3':'d3/d3.min',
+     'nvd3': 'nvd3/build/nv.d3',
+     'angular-nvd3':'angular-nvd3/dist/angular-nvd3.min',
+     'app':'../components/app',
+     'app-controllers':'../components/app.controllers',
+     'app-services':'../components/app.services',
+     'app-directives':'../components/app.directives',
+     'app-bootstrap':'../components/app.bootstrap',
+     'navigationctrl': '../components/navigation.ctrl',
+     'reportservice':'../components/services/reportservice',
+     'scriptservice':'../components/services/scriptservice',
+     'baidumapdirective':'../components/uis/baidumap.directive',
+     'gaugedirective':'../components/uis/gauge.directive',
+     'homectrl':'../pages/home/home.ctrl',
+     'searchctrl':'../pages/search/search.ctrl',
+     'productionctrl':'../pages/production/production.ctrl',
+     'prdmodel': '../pages/production/production',
+     'monitorctrl':'../pages/monitor/monitor.ctrl',
+     'monitormodel':'../pages/monitor/monitor',
+   },
+   shim: {
+     　　　　'querybuilder': {
+       　　　　　　deps: ['jquery', "moment"],
+     　　　　},
+     'querybuilder-zhcn': {
+       　　　　　　deps: ['jquery', 'querybuilder' ],
+     },
+     'bootstrap': {
+      deps:['jquery'],
+    },
+    'bootstrap-slider':{
+      　　　　　　	deps: ['jquery', 'bootstrap' ],
+    },
+    'bootstrap-datepicker':{
+      deps: ['jquery', 'bootstrap' ],
+    },
+    'angular' : { exports: 'angular' },
+    'angular-animate': {
+      deps: ['angular']
+    },
+    'angular-aria': {
+      deps: ['angular']
+    },
+    'angular-material': {
+      deps: ['angular', 'angular-animate', 'angular-aria']
+    },
+    'angular-route': {
+      deps: ['angular']
+    },
+    'angular-sanitize': {
+      deps: ['angular']
+    },
+    'angular-timeline': {
+      deps: ['angular']
+    },
+    'angular-uigrid': {
+      deps: ['angular']
+    },
+    'nvd3':{
+      deps: ['d3']
+    },
+    'angular-nvd3':{
+      deps: ['angular', 'nvd3']
+    }
+  },
+  deps:['app-bootstrap']
+});
+
+</script>
+</body>
+</html>

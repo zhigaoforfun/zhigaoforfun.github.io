@@ -1,0 +1,87 @@
+<div layout="column">
+	<div flex layout="row" class="renderborder lightgray region-content" style="font-size: 130%">
+		<div flex>生产信息监测</div>
+        <div flex style="text-align:right;">
+           <md-button  class="md-raised md-primary" ng-click="showSetting()" style="margin:2px; min-height: 24px; line-height: 30px">
+      		  <md-icon md-svg-icon="./imgs/icons/menu.svg"></md-icon>
+      		  设置
+      		</md-button>
+      	</div>
+	</div>
+<div layout="row" layout-xs="column">
+	<div id="prdPlotContainer" layout="column" class="fill-height-or-more" 
+	ng-class="{'flex-xs-100':desktopManualFlex(), 'flex-40':desktopManualFlex(), flex:!desktopManualFlex()}" >
+		<div flex class="renderborder flexbigitem" style="padding:2px">
+			<div id="plot1Container">
+					<nvd3 id="gaugeChart1" options="prdOption1" api="api.prdChart1" config="{refreshDataOnly: true}" data = "monitorModel.prdData1" class="with-3d-shadow with-transitions">
+					</nvd3>
+			</div>
+		</div>
+		<div flex class="renderborder flexbigitem" style="padding:2px">
+			<div id="plot2Container">
+					<nvd3 id="gaugeChart2" options="prdOption2" api="api.prdChart2" config="{refreshDataOnly: true}" data = "monitorModel.prdData2"class="with-3d-shadow with-transitions">
+					</nvd3>
+			</div>
+		</div>
+	</div>
+
+	<div layout="row" ng-class="{'flex-xs-100':desktopManualFlex(), 'flex-35':desktopManualFlex(), flex:!desktopManualFlex()}">
+		<div flex class="fill-height-or-more">
+			<div ng-repeat="g in monitorModel.allGauges" class="renderborder" style="position:relative">
+				<gauge option="g"></gauge>
+			</div>
+		</div>
+		<div flex class="renderborder">
+      		<img id="equipmentPic" src="./imgs/equipment.png" style="width: 100%; min-height: 600px"/>
+		</div>
+	</div>	
+	<div layout="column"  style="min-height: 600px" ng-class="{'flex-xs-100':desktopManualFlex(), 'flex-25':desktopManualFlex(), flex:!desktopManualFlex()}">
+		<div flex class="renderborder flexsmallitem">
+			<div flex class="renderborder lightlightgray region-content" style="font-size: 100%; text-align:center" >
+				井基本信息
+			</div>
+			<div flex class="normaltext">
+				井名: {{monitorModel.activeWell.name}}, 区块: {{monitorModel.activeWell.region}}<br/>
+				类型: {{monitorModel.activeWell.type}}, 生产方法: {{monitorModel.activeWell.method}}<br/>
+				生产层: {{monitorModel.activeWell.prdlayer}}<br/>
+				井位: [{{monitorModel.activeWell.latitude}},{{monitorModel.activeWell.longitude}}]<br/>
+				深度: {{monitorModel.activeWell.depth}}(米)<br/>
+				套管: {{monitorModel.activeWell.casingsize}}(毫米)<br/>
+				油管: {{monitorModel.activeWell.pipesize}}(毫米)<br/>
+				油嘴: {{monitorModel.activeWell.nozzlesize}}(毫米)<br/>
+			</div>
+		</div>
+		<div flex class="renderborder flexsmallitem">
+			<div flex class="renderborder lightlightgray region-content" style="font-size: 100%; text-align:center" >
+				解决方案
+			</div>
+			<div flex class="normaltext">
+			问题描述：井口压力过高<br/>
+			解决方案：<br/>
+			<ul>
+			<li>巡井组到井场检查确认问题</li>
+			<li>减产导流降低压力</li>
+			</ul>
+
+			</div>
+		</div>
+		<div flex class="renderborder flexsmallitem">
+			<div flex class="renderborder lightlightgray region-content" style="font-size: 100%; text-align:center" >
+				执行措施
+			</div>
+			<div  flex class="normaltext">
+			1. 降低泵速<br/>
+			2. 减少临井注水量<br/>
+			3. 检测井场管线<br/>
+			<div flex style="text-align:right; position: relative; left: 0; bottom:0;">
+			<md-button class = "md-raised md-primary" ng-click="showProgress()">
+       			 进度
+      		</md-button>
+      		</div>
+
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<div id="canvas" style="position:absolute; top:-800px"> </div>

@@ -1,0 +1,30 @@
+<md-dialog aria-label="设置"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3>设置</h3>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="imgs/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+<md-dialog-content>
+<div style="margin:20px">
+		<div ng-repeat="g in allGauges">
+			<div><label>{{g.name}}</label> 警告: <input type="text" ng-model="g.warning" ng-pattern="/^[0-9]{1,7}$/" style="width: 100px"> 危险: <input type="text" ng-model="g.dangrous" ng-pattern="/^[0-9]{1,7}$/" style="width: 100px"> {{g.unit}}</div>
+		</div>
+</div>		
+
+</md-dialog-content>
+ <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="resetSetting()">
+       重置
+      </md-button>
+      <md-button class = "md-raised md-primary" ng-click="closeSetting()" style="margin-right:20px;">
+        确定
+      </md-button>
+    </md-dialog-actions> 
+  </form>
+</md-dialog>

@@ -1,0 +1,1 @@
+define(['navigationctrl', 'homectrl', 'searchctrl', 'productionctrl', 'monitorctrl'],function(){});
